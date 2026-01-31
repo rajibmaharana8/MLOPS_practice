@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
 import logging
-#import yaml
+import yaml
 
 
 # Ensure the "logs" directory exists
@@ -27,6 +27,21 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
+
+
+def load_params(params_path: str) -> dict:
+    """Load parameters from a YAML file."""
+    try:
+        with open(params_path, 'r') as file:
+            params = yaml.safe_load(file)
+        logger.debug('Parameters loaded from %s', params_path)
+        return params
+    except FileNotFoundError:
+        logger.error('Parameters file not found: %s', params_path)
+        raise
+    except Exception as e:
+        logger.error('Unexpected error occurred while loading parameters: %s', e)
+        raise
 
 
 def load_data(data_url: str) -> pd.DataFrame:

@@ -7,3 +7,5 @@ matplotlib
 wordcloud
 nltk
 xgboost
+dvc
+PyYAML

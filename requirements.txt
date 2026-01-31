@@ -1,0 +1,9 @@
+numpy
+pandas
+scikit-learn
+fastapi
+dotenv
+matplotlib
+wordcloud
+nltk
+xgboost

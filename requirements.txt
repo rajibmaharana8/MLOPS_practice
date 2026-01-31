@@ -9,3 +9,4 @@ nltk
 xgboost
 dvc
 PyYAML
+dvclive
